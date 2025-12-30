@@ -36,7 +36,7 @@
 
         .container {
             width: 90%;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 15px;
         }
@@ -118,20 +118,20 @@
             background-size: cover;
             background-position: center;
             color: white;
-            padding: 4rem 0;
+            padding: 3rem 0;
             text-align: center;
         }
 
         .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            font-size: 2.5rem;
+            margin-bottom: 0.8rem;
             font-family: 'Orbitron', sans-serif;
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             max-width: 700px;
-            margin: 0 auto 2rem;
+            margin: 0 auto 1.5rem;
             color: var(--gray);
         }
 
@@ -139,11 +139,11 @@
             display: inline-block;
             background-color: var(--primary);
             color: white;
-            padding: 12px 30px;
+            padding: 10px 25px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1rem;
             transition: all 0.3s;
             border: none;
             cursor: pointer;
@@ -157,7 +157,7 @@
 
         /* Games Filter */
         .games-filter {
-            padding: 2rem 0;
+            padding: 1.5rem 0;
             background-color: white;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
         }
@@ -166,11 +166,11 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 1rem;
+            gap: 0.8rem;
         }
 
         .game-filter-btn {
-            padding: 10px 25px;
+            padding: 8px 20px;
             border-radius: 30px;
             border: 2px solid var(--gray);
             background-color: white;
@@ -180,95 +180,117 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            font-size: 0.9rem;
         }
 
-        .game-filter-btn.active, .game-filter-btn:hover {
+        .game-filter-btn:hover {
+            background-color: var(--primary);
+            border-color: var(--primary);
             color: white;
+            transform: translateY(-2px);
         }
 
         .game-filter-btn.active {
             background-color: var(--primary);
             border-color: var(--primary);
+            color: white;
+            transform: scale(1.05);
         }
 
-        .game-filter-btn.freefire:hover {
-            background-color: var(--freefire);
-            border-color: var(--freefire);
-        }
-
-        .game-filter-btn.pubg:hover {
-            background-color: var(--pubg);
-            border-color: var(--pubg);
-        }
-
-        .game-filter-btn.coc:hover {
-            background-color: var(--coc);
-            border-color: var(--coc);
-        }
-
-        /* Accounts Grid */
+        /* Accounts Grid - Compact Design */
         .accounts-section {
-            padding: 3rem 0;
-            min-height: 600px; /* Ensures content doesn't collapse */
+            padding: 2rem 0;
+            min-height: 400px;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 2.5rem;
-            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
             color: var(--dark);
             font-family: 'Orbitron', sans-serif;
         }
 
         .accounts-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1rem;
         }
 
         .no-accounts-message {
             grid-column: 1 / -1;
             text-align: center;
-            padding: 3rem;
+            padding: 2rem;
             color: #666;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
 
         .account-card {
             background-color: white;
-            border-radius: 10px;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+            animation: fadeInUp 0.5s ease-out;
+            animation-fill-mode: both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .account-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        .account-image {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .account-content {
+            padding: 0.75rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .account-header {
-            padding: 1.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-bottom: 0.5rem;
         }
 
         .account-game {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
         }
 
         .game-icon {
-            width: 40px;
-            height: 40px;
+            width: 24px;
+            height: 24px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.2rem;
+            font-size: 0.7rem;
         }
 
         .game-icon.freefire {
@@ -284,39 +306,43 @@
         }
 
         .account-price {
-            font-size: 1.5rem;
+            font-size: 1.1rem;
             font-weight: 700;
             color: var(--primary);
         }
 
-        .account-details {
-            padding: 0 1.5rem;
-        }
-
-        .account-details h3 {
-            margin-bottom: 0.5rem;
-            font-size: 1.3rem;
-        }
-
-        .account-details p {
-            color: #666;
-            margin-bottom: 1rem;
+        .account-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+            color: var(--dark);
+            line-height: 1.3;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
         .account-features {
             list-style: none;
-            margin-bottom: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.8rem;
+            flex-grow: 1;
         }
 
         .account-features li {
-            padding: 8px 0;
-            border-bottom: 1px dashed var(--gray);
+            padding: 0.3rem 0;
             display: flex;
             justify-content: space-between;
+            border-bottom: 1px dashed #e9ecef;
         }
 
         .account-features li:last-child {
             border-bottom: none;
+        }
+
+        .account-features .feature-name {
+            color: #666;
         }
 
         .account-features .feature-value {
@@ -324,49 +350,28 @@
             color: var(--dark);
         }
 
-        .account-footer {
-            padding: 1.5rem;
-            background-color: #f8f9fa;
-            border-top: 1px solid var(--gray);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .btn-buy {
-            background-color: var(--success);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .btn-buy:hover {
-            background-color: #00a085;
-        }
-
-        .btn-details {
-            background-color: transparent;
-            color: var(--primary);
-            border: 1px solid var(--primary);
-            padding: 9px 20px;
-            border-radius: 5px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .btn-details:hover {
+        .btn-view {
             background-color: var(--primary);
             color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            width: 100%;
+            font-size: 0.85rem;
+        }
+
+        .btn-view:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(108, 92, 231, 0.3);
         }
 
         /* Features Section */
         .features {
-            padding: 4rem 0;
+            padding: 3rem 0;
             background-color: var(--dark);
             color: white;
         }
@@ -487,24 +492,25 @@
             }
 
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 2rem;
             }
 
             .hero p {
-                font-size: 1rem;
+                font-size: 0.95rem;
             }
 
             .section-title {
-                font-size: 1.8rem;
+                font-size: 1.6rem;
             }
 
-            .account-footer {
-                flex-direction: column;
-                gap: 1rem;
+            .accounts-grid {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
             }
+        }
 
-            .btn-details, .btn-buy {
-                width: 100%;
+        @media (min-width: 1200px) {
+            .accounts-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             }
         }
     </style>
@@ -562,7 +568,6 @@
     <!-- Accounts Section -->
     <section class="accounts-section" id="accounts">
         <div class="container">
-            <h2 class="section-title">Premium Gaming Accounts</h2>
             <div class="accounts-grid" id="accountsGrid">
                 <!-- Accounts will be populated by JavaScript -->
             </div>
@@ -638,47 +643,44 @@
     </footer>
 
     <script>
-        // Sample account data
+        // Sample account data with images
         const accounts = [
             {
                 id: 1,
                 game: "freefire",
-                title: "Free Fire MAX Legendary Account",
-                description: "High-level account with legendary skins, characters, and weapons.",
+                title: "Free Fire MAX Legendary",
                 price: "$249.99",
+                image: "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=500&h=300&fit=crop",
                 features: {
                     "Level": "70",
                     "Characters": "12",
-                    "Diamonds": "15,000+",
-                    "Skins": "45+",
-                    "K/D Ratio": "4.2"
+                    "Diamonds": "15K+",
+                    "Skins": "45+"
                 }
             },
             {
                 id: 2,
                 game: "freefire",
                 title: "Free Fire Pro Account",
-                description: "Well-maintained account with rare items and high rank.",
                 price: "$179.99",
+                image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=500&h=300&fit=crop",
                 features: {
                     "Level": "56",
                     "Characters": "8",
-                    "Diamonds": "8,500+",
-                    "Skins": "28+",
-                    "K/D Ratio": "3.5"
+                    "Diamonds": "8.5K+",
+                    "Skins": "28+"
                 }
             },
             {
                 id: 3,
                 game: "pubg",
                 title: "PUBG Conqueror Account",
-                description: "Season 18 Conqueror with rare skins and high stats.",
                 price: "$349.99",
+                image: "https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=500&h=300&fit=crop",
                 features: {
                     "Rank": "Conqueror",
                     "Level": "75",
-                    "UC": "12,000+",
-                    "Skins": "60+",
+                    "UC": "12K+",
                     "Win Rate": "28%"
                 }
             },
@@ -686,42 +688,117 @@
                 id: 4,
                 game: "pubg",
                 title: "PUBG Ace Dominator",
-                description: "Ace dominator account with multiple legendary items.",
                 price: "$229.99",
+                image: "https://images.unsplash.com/photo-1579373903781-fd5c0c30c4cd?w=500&h=300&fit=crop",
                 features: {
-                    "Rank": "Ace Dominator",
+                    "Rank": "Ace Dom.",
                     "Level": "62",
-                    "UC": "6,500+",
-                    "Skins": "35+",
+                    "UC": "6.5K+",
                     "Win Rate": "22%"
                 }
             },
             {
                 id: 5,
                 game: "coc",
-                title: "Clash of Clans Max TH14",
-                description: "Fully maxed Town Hall 14 with all heroes and troops.",
+                title: "Max TH14 Account",
                 price: "$499.99",
+                image: "https://images.unsplash.com/photo-1560253023-3ec5d502959f?w=500&h=300&fit=crop",
                 features: {
-                    "Town Hall": "14 (Max)",
-                    "Trophies": "5,800+",
-                    "War Stars": "1,200+",
-                    "Hero Levels": "Max",
-                    "Magic Items": "50+"
+                    "Town Hall": "14 Max",
+                    "Trophies": "5.8K+",
+                    "War Stars": "1.2K+",
+                    "Heroes": "Max"
                 }
             },
             {
                 id: 6,
                 game: "coc",
                 title: "Clash of Clans TH13",
-                description: "Near max TH13 account with strong war performance.",
                 price: "$329.99",
+                image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=500&h=300&fit=crop",
                 features: {
                     "Town Hall": "13",
-                    "Trophies": "5,200+",
+                    "Trophies": "5.2K+",
                     "War Stars": "900+",
-                    "Hero Levels": "70/70/50/25",
-                    "Magic Items": "30+"
+                    "Heroes": "70/70/50"
+                }
+            },
+            {
+                id: 7,
+                game: "freefire",
+                title: "FF Diamond Elite",
+                price: "$199.99",
+                image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=500&h=300&fit=crop",
+                features: {
+                    "Level": "65",
+                    "Characters": "10",
+                    "Diamonds": "12K+",
+                    "K/D": "3.8"
+                }
+            },
+            {
+                id: 8,
+                game: "pubg",
+                title: "PUBG Crown Master",
+                price: "$159.99",
+                image: "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=500&h=300&fit=crop",
+                features: {
+                    "Rank": "Crown V",
+                    "Level": "58",
+                    "UC": "4K+",
+                    "Skins": "25+"
+                }
+            },
+            {
+                id: 9,
+                game: "coc",
+                title: "TH12 War Beast",
+                price: "$249.99",
+                image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=500&h=300&fit=crop",
+                features: {
+                    "Town Hall": "12",
+                    "Trophies": "4.8K+",
+                    "War Stars": "750+",
+                    "Heroes": "65/65/40"
+                }
+            },
+            {
+                id: 10,
+                game: "freefire",
+                title: "FF Battle Royale Pro",
+                price: "$139.99",
+                image: "https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=500&h=300&fit=crop",
+                features: {
+                    "Level": "48",
+                    "Characters": "6",
+                    "Diamonds": "5K+",
+                    "Skins": "18+"
+                }
+            },
+            {
+                id: 11,
+                game: "pubg",
+                title: "PUBG Diamond Ace",
+                price: "$279.99",
+                image: "https://images.unsplash.com/photo-1579373903781-fd5c0c30c4cd?w=500&h=300&fit=crop",
+                features: {
+                    "Rank": "Ace",
+                    "Level": "68",
+                    "UC": "8K+",
+                    "Win Rate": "25%"
+                }
+            },
+            {
+                id: 12,
+                game: "coc",
+                title: "TH11 Maxed Base",
+                price: "$189.99",
+                image: "https://images.unsplash.com/photo-1560253023-3ec5d502959f?w=500&h=300&fit=crop",
+                features: {
+                    "Town Hall": "11 Max",
+                    "Trophies": "4.2K+",
+                    "War Stars": "600+",
+                    "Heroes": "50/50/20"
                 }
             }
         ];
@@ -740,7 +817,6 @@
                 ? accounts 
                 : accounts.filter(account => account.game === filter);
             
-            // If no accounts match the filter, show a message
             if (filteredAccounts.length === 0) {
                 const message = document.createElement('div');
                 message.className = 'no-accounts-message';
@@ -753,27 +829,23 @@
                 return;
             }
             
-            filteredAccounts.forEach(account => {
+            filteredAccounts.forEach((account, index) => {
                 const accountCard = document.createElement('div');
                 accountCard.className = 'account-card';
+                accountCard.style.animationDelay = `${index * 0.05}s`;
                 
-                // Determine game-specific details
-                let gameName, gameIconClass, gameFullName;
+                let gameName, gameIconClass;
                 if (account.game === 'freefire') {
                     gameName = 'Free Fire';
                     gameIconClass = 'freefire';
-                    gameFullName = 'Free Fire';
                 } else if (account.game === 'pubg') {
                     gameName = 'PUBG';
                     gameIconClass = 'pubg';
-                    gameFullName = 'PUBG Mobile';
                 } else {
                     gameName = 'CoC';
                     gameIconClass = 'coc';
-                    gameFullName = 'Clash of Clans';
                 }
                 
-                // Create features list HTML
                 let featuresHTML = '';
                 for (const [key, value] of Object.entries(account.features)) {
                     featuresHTML += `
@@ -785,25 +857,24 @@
                 }
                 
                 accountCard.innerHTML = `
-                    <div class="account-header">
-                        <div class="account-game">
-                            <div class="game-icon ${gameIconClass}">
-                                <i class="fas fa-${account.game === 'coc' ? 'crown' : account.game === 'freefire' ? 'fire' : 'crosshairs'}"></i>
+                    <img src="${account.image}" alt="${account.title}" class="account-image">
+                    <div class="account-content">
+                        <div class="account-header">
+                            <div class="account-game">
+                                <div class="game-icon ${gameIconClass}">
+                                    <i class="fas fa-${account.game === 'coc' ? 'crown' : account.game === 'freefire' ? 'fire' : 'crosshairs'}"></i>
+                                </div>
+                                <span>${gameName}</span>
                             </div>
-                            <span>${gameFullName}</span>
+                            <div class="account-price">${account.price}</div>
                         </div>
-                        <div class="account-price">${account.price}</div>
-                    </div>
-                    <div class="account-details">
-                        <h3>${account.title}</h3>
-                        <p>${account.description}</p>
+                        <h3 class="account-title">${account.title}</h3>
                         <ul class="account-features">
                             ${featuresHTML}
                         </ul>
-                    </div>
-                    <div class="account-footer">
-                        <button class="btn-details" onclick="viewAccountDetails(${account.id})">View Details</button>
-                        <button class="btn-buy" onclick="buyAccount(${account.id})">Buy Now</button>
+                        <button class="btn-view" onclick="viewAccountDetails(${account.id})">
+                            <i class="fas fa-eye"></i> View Details
+                        </button>
                     </div>
                 `;
                 
@@ -814,17 +885,11 @@
         // Filter accounts by game
         filterButtons.forEach(button => {
             button.addEventListener('click', () => {
-                // Update active button
                 filterButtons.forEach(btn => {
                     btn.classList.remove('active');
-                    // Clear inline styles from all buttons
-                    btn.style.backgroundColor = '';
-                    btn.style.borderColor = '';
                 });
                 
                 button.classList.add('active');
-                
-                // Filter accounts
                 renderAccounts(button.getAttribute('data-game'));
             });
         });
@@ -841,16 +906,32 @@
             });
         });
 
-        // Simulated functions for buttons
+        // View account details function
         window.viewAccountDetails = function(accountId) {
             const account = accounts.find(acc => acc.id === accountId);
-            alert(`Viewing details for: ${account.title}\n\nPrice: ${account.price}\n\nDescription: ${account.description}\n\nThis would normally open a detailed view with more information about the account.`);
+            if (account) {
+                let featuresText = '';
+                for (const [key, value] of Object.entries(account.features)) {
+                    featuresText += `${key}: ${value}\n`;
+                }
+                alert(`Account Details\n\n${account.title}\n\nPrice: ${account.price}\n\nFeatures:\n${featuresText}\n\nThis would normally open a detailed view with more information and purchase options.`);
+            }
         };
 
-        window.buyAccount = function(accountId) {
-            const account = accounts.find(acc => acc.id === accountId);
-            alert(`Initiating purchase for: ${account.title}\n\nPrice: ${account.price}\n\nIn a real website, this would redirect to a secure checkout process.`);
-        };
+        // Close mobile menu when clicking on a link and update active state
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.classList.remove('active');
+                
+                // Remove active class from all nav links
+                document.querySelectorAll('.nav-links a').forEach(a => {
+                    a.classList.remove('active');
+                });
+                
+                // Add active class to clicked link
+                this.classList.add('active');
+            });
+        });
 
         // Initialize the page
         document.addEventListener('DOMContentLoaded', () => {
