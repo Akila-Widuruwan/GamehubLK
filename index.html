@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameHub - Premium Gaming Accounts Marketplace</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6c5ce7;
+            --primary-dark: #5a4fcf;
+            --secondary: #00cec9;
+            --dark: #2d3436;
+            --light: #f9f9f9;
+            --gray: #dfe6e9;
+            --danger: #ff7675;
+            --success: #00b894;
+            --freefire: #f39c12;
+            --pubg: #e74c3c;
+            --coc: #3498db;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f7fa;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--dark);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .logo i {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .nav-links a.active {
+            color: var(--secondary);
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--secondary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(45, 52, 54, 0.9), rgba(45, 52, 54, 0.8)), url('https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: var(--gray);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(108, 92, 231, 0.3);
+        }
+
+        /* Games Filter */
+        .games-filter {
+            padding: 2rem 0;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .game-filter-btn {
+            padding: 10px 25px;
+            border-radius: 30px;
+            border: 2px solid var(--gray);
+            background-color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .game-filter-btn.active, .game-filter-btn:hover {
+            color: white;
+        }
+
+        .game-filter-btn.active {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .game-filter-btn.freefire:hover {
+            background-color: var(--freefire);
+            border-color: var(--freefire);
+        }
+
+        .game-filter-btn.pubg:hover {
+            background-color: var(--pubg);
+            border-color: var(--pubg);
+        }
+
+        .game-filter-btn.coc:hover {
+            background-color: var(--coc);
+            border-color: var(--coc);
+        }
+
+        /* Accounts Grid */
+        .accounts-section {
+            padding: 3rem 0;
+            min-height: 600px; /* Ensures content doesn't collapse */
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            font-size: 2.2rem;
+            color: var(--dark);
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .accounts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .no-accounts-message {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 3rem;
+            color: #666;
+            font-size: 1.2rem;
+        }
+
+        .account-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .account-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .account-header {
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .account-game {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .game-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .game-icon.freefire {
+            background-color: var(--freefire);
+        }
+
+        .game-icon.pubg {
+            background-color: var(--pubg);
+        }
+
+        .game-icon.coc {
+            background-color: var(--coc);
+        }
+
+        .account-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .account-details {
+            padding: 0 1.5rem;
+        }
+
+        .account-details h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .account-details p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .account-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .account-features li {
+            padding: 8px 0;
+            border-bottom: 1px dashed var(--gray);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .account-features li:last-child {
+            border-bottom: none;
+        }
+
+        .account-features .feature-value {
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .account-footer {
+            padding: 1.5rem;
+            background-color: #f8f9fa;
+            border-top: 1px solid var(--gray);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn-buy {
+            background-color: var(--success);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-buy:hover {
+            background-color: #00a085;
+        }
+
+        .btn-details {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            padding: 9px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-details:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 4rem 0;
+            background-color: var(--dark);
+            color: white;
+        }
+
+        .features-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 2rem;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1e21;
+            color: #aaa;
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .footer-about p {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links h4, .footer-contact h4 {
+            color: white;
+            margin-bottom: 1.2rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .footer-contact p {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--dark);
+                flex-direction: column;
+                padding: 1rem 0;
+                text-align: center;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .account-footer {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .btn-details, .btn-buy {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-gamepad"></i>
+                <span>GameHub</span>
+            </div>
+            
+            <nav>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="nav-links" id="navLinks">
+                    <a href="#" class="active">Home</a>
+                    <a href="#accounts">Accounts</a>
+                    <a href="#features">Why Choose Us</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Premium Gaming Accounts Marketplace</h1>
+            <p>Buy and sell high-quality gaming accounts for Free Fire, PUBG, and Clash of Clans. Get instant delivery, secure transactions, and 24/7 customer support.</p>
+            <a href="#accounts" class="cta-button">Browse Accounts <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <!-- Games Filter -->
+    <section class="games-filter">
+        <div class="container filter-container">
+            <button class="game-filter-btn active" data-game="all">
+                <i class="fas fa-th-large"></i> All Games
+            </button>
+            <button class="game-filter-btn freefire" data-game="freefire">
+                <i class="fas fa-fire"></i> Free Fire
+            </button>
+            <button class="game-filter-btn pubg" data-game="pubg">
+                <i class="fas fa-crosshairs"></i> PUBG
+            </button>
+            <button class="game-filter-btn coc" data-game="coc">
+                <i class="fas fa-crown"></i> Clash of Clans
+            </button>
+        </div>
+    </section>
+
+    <!-- Accounts Section -->
+    <section class="accounts-section" id="accounts">
+        <div class="container">
+            <h2 class="section-title">Premium Gaming Accounts</h2>
+            <div class="accounts-grid" id="accountsGrid">
+                <!-- Accounts will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose GameHub?</h2>
+            <div class="features-container">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Secure Transactions</h3>
+                    <p>All transactions are protected with advanced encryption and secure payment gateways.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Instant Delivery</h3>
+                    <p>Receive your account credentials immediately after payment confirmation.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>24/7 Support</h3>
+                    <p>Our customer support team is available round the clock to assist you.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Verified Accounts</h3>
+                    <p>All accounts are thoroughly verified for authenticity and quality assurance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="footer-logo">GameHub</div>
+                    <p>Your trusted marketplace for premium gaming accounts. We provide secure transactions and top-quality accounts for serious gamers.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#accounts">Accounts</a></li>
+                        <li><a href="#features">Why Choose Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-envelope"></i> support@gamehub.com</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Gaming Street, Virtual City</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 GameHub. All rights reserved. This website is for demonstration purposes only.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sample account data
+        const accounts = [
+            {
+                id: 1,
+                game: "freefire",
+                title: "Free Fire MAX Legendary Account",
+                description: "High-level account with legendary skins, characters, and weapons.",
+                price: "$249.99",
+                features: {
+                    "Level": "70",
+                    "Characters": "12",
+                    "Diamonds": "15,000+",
+                    "Skins": "45+",
+                    "K/D Ratio": "4.2"
+                }
+            },
+            {
+                id: 2,
+                game: "freefire",
+                title: "Free Fire Pro Account",
+                description: "Well-maintained account with rare items and high rank.",
+                price: "$179.99",
+                features: {
+                    "Level": "56",
+                    "Characters": "8",
+                    "Diamonds": "8,500+",
+                    "Skins": "28+",
+                    "K/D Ratio": "3.5"
+                }
+            },
+            {
+                id: 3,
+                game: "pubg",
+                title: "PUBG Conqueror Account",
+                description: "Season 18 Conqueror with rare skins and high stats.",
+                price: "$349.99",
+                features: {
+                    "Rank": "Conqueror",
+                    "Level": "75",
+                    "UC": "12,000+",
+                    "Skins": "60+",
+                    "Win Rate": "28%"
+                }
+            },
+            {
+                id: 4,
+                game: "pubg",
+                title: "PUBG Ace Dominator",
+                description: "Ace dominator account with multiple legendary items.",
+                price: "$229.99",
+                features: {
+                    "Rank": "Ace Dominator",
+                    "Level": "62",
+                    "UC": "6,500+",
+                    "Skins": "35+",
+                    "Win Rate": "22%"
+                }
+            },
+            {
+                id: 5,
+                game: "coc",
+                title: "Clash of Clans Max TH14",
+                description: "Fully maxed Town Hall 14 with all heroes and troops.",
+                price: "$499.99",
+                features: {
+                    "Town Hall": "14 (Max)",
+                    "Trophies": "5,800+",
+                    "War Stars": "1,200+",
+                    "Hero Levels": "Max",
+                    "Magic Items": "50+"
+                }
+            },
+            {
+                id: 6,
+                game: "coc",
+                title: "Clash of Clans TH13",
+                description: "Near max TH13 account with strong war performance.",
+                price: "$329.99",
+                features: {
+                    "Town Hall": "13",
+                    "Trophies": "5,200+",
+                    "War Stars": "900+",
+                    "Hero Levels": "70/70/50/25",
+                    "Magic Items": "30+"
+                }
+            }
+        ];
+
+        // DOM Elements
+        const accountsGrid = document.getElementById('accountsGrid');
+        const filterButtons = document.querySelectorAll('.game-filter-btn');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        // Function to render accounts
+        function renderAccounts(filter = 'all') {
+            accountsGrid.innerHTML = '';
+            
+            const filteredAccounts = filter === 'all' 
+                ? accounts 
+                : accounts.filter(account => account.game === filter);
+            
+            // If no accounts match the filter, show a message
+            if (filteredAccounts.length === 0) {
+                const message = document.createElement('div');
+                message.className = 'no-accounts-message';
+                message.innerHTML = `
+                    <i class="fas fa-search" style="font-size: 3rem; color: #ccc; margin-bottom: 1rem;"></i>
+                    <h3>No accounts found for this filter</h3>
+                    <p>Try selecting a different game or check back later for new accounts.</p>
+                `;
+                accountsGrid.appendChild(message);
+                return;
+            }
+            
+            filteredAccounts.forEach(account => {
+                const accountCard = document.createElement('div');
+                accountCard.className = 'account-card';
+                
+                // Determine game-specific details
+                let gameName, gameIconClass, gameFullName;
+                if (account.game === 'freefire') {
+                    gameName = 'Free Fire';
+                    gameIconClass = 'freefire';
+                    gameFullName = 'Free Fire';
+                } else if (account.game === 'pubg') {
+                    gameName = 'PUBG';
+                    gameIconClass = 'pubg';
+                    gameFullName = 'PUBG Mobile';
+                } else {
+                    gameName = 'CoC';
+                    gameIconClass = 'coc';
+                    gameFullName = 'Clash of Clans';
+                }
+                
+                // Create features list HTML
+                let featuresHTML = '';
+                for (const [key, value] of Object.entries(account.features)) {
+                    featuresHTML += `
+                        <li>
+                            <span class="feature-name">${key}</span>
+                            <span class="feature-value">${value}</span>
+                        </li>
+                    `;
+                }
+                
+                accountCard.innerHTML = `
+                    <div class="account-header">
+                        <div class="account-game">
+                            <div class="game-icon ${gameIconClass}">
+                                <i class="fas fa-${account.game === 'coc' ? 'crown' : account.game === 'freefire' ? 'fire' : 'crosshairs'}"></i>
+                            </div>
+                            <span>${gameFullName}</span>
+                        </div>
+                        <div class="account-price">${account.price}</div>
+                    </div>
+                    <div class="account-details">
+                        <h3>${account.title}</h3>
+                        <p>${account.description}</p>
+                        <ul class="account-features">
+                            ${featuresHTML}
+                        </ul>
+                    </div>
+                    <div class="account-footer">
+                        <button class="btn-details" onclick="viewAccountDetails(${account.id})">View Details</button>
+                        <button class="btn-buy" onclick="buyAccount(${account.id})">Buy Now</button>
+                    </div>
+                `;
+                
+                accountsGrid.appendChild(accountCard);
+            });
+        }
+
+        // Filter accounts by game
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active button
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                    // Remove any game-specific color classes from all buttons
+                    btn.classList.remove('freefire', 'pubg', 'coc');
+                });
+                
+                button.classList.add('active');
+                
+                // Apply appropriate color for "All Games" button
+                const game = button.getAttribute('data-game');
+                if (game === 'all') {
+                    button.style.backgroundColor = 'var(--primary)';
+                    button.style.borderColor = 'var(--primary)';
+                } else {
+                    // For game-specific buttons, apply game color on hover only
+                    button.style.backgroundColor = '';
+                    button.style.borderColor = '';
+                }
+                
+                // Filter accounts
+                renderAccounts(game);
+            });
+        });
+
+        // Mobile menu toggle
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Simulated functions for buttons
+        window.viewAccountDetails = function(accountId) {
+            const account = accounts.find(acc => acc.id === accountId);
+            alert(`Viewing details for: ${account.title}\n\nPrice: ${account.price}\n\nDescription: ${account.description}\n\nThis would normally open a detailed view with more information about the account.`);
+        };
+
+        window.buyAccount = function(accountId) {
+            const account = accounts.find(acc => acc.id === accountId);
+            alert(`Initiating purchase for: ${account.title}\n\nPrice: ${account.price}\n\nIn a real website, this would redirect to a secure checkout process.`);
+        };
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set initial active state for "All Games" button
+            const allGamesBtn = document.querySelector('[data-game="all"]');
+            allGamesBtn.style.backgroundColor = 'var(--primary)';
+            allGamesBtn.style.borderColor = 'var(--primary)';
+            
+            renderAccounts();
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
