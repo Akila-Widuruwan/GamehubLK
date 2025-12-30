@@ -817,25 +817,15 @@
                 // Update active button
                 filterButtons.forEach(btn => {
                     btn.classList.remove('active');
-                    // Remove any game-specific color classes from all buttons
-                    btn.classList.remove('freefire', 'pubg', 'coc');
+                    // Clear inline styles from all buttons
+                    btn.style.backgroundColor = '';
+                    btn.style.borderColor = '';
                 });
                 
                 button.classList.add('active');
                 
-                // Apply appropriate color for "All Games" button
-                const game = button.getAttribute('data-game');
-                if (game === 'all') {
-                    button.style.backgroundColor = 'var(--primary)';
-                    button.style.borderColor = 'var(--primary)';
-                } else {
-                    // For game-specific buttons, apply game color on hover only
-                    button.style.backgroundColor = '';
-                    button.style.borderColor = '';
-                }
-                
                 // Filter accounts
-                renderAccounts(game);
+                renderAccounts(button.getAttribute('data-game'));
             });
         });
 
@@ -864,11 +854,6 @@
 
         // Initialize the page
         document.addEventListener('DOMContentLoaded', () => {
-            // Set initial active state for "All Games" button
-            const allGamesBtn = document.querySelector('[data-game="all"]');
-            allGamesBtn.style.backgroundColor = 'var(--primary)';
-            allGamesBtn.style.borderColor = 'var(--primary)';
-            
             renderAccounts();
             
             // Smooth scrolling for anchor links
