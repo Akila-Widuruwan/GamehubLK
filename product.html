@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Fire MAX Legendary Account - GameHubLK</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6c5ce7;
+            --primary-dark: #5a4fcf;
+            --secondary: #00cec9;
+            --dark: #2d3436;
+            --light: #f9f9f9;
+            --gray: #dfe6e9;
+            --danger: #ff7675;
+            --success: #00b894;
+            --freefire: #f39c12;
+            --pubg: #e74c3c;
+            --coc: #3498db;
+            --warning: #fdcb6e;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f7fa;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--dark);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        .logo i {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 1rem 0;
+            background-color: white;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .breadcrumb a {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        /* Product Container */
+        .product-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (min-width: 992px) {
+            .product-container {
+                grid-template-columns: 1.2fr 0.8fr;
+            }
+        }
+
+        /* Product Gallery */
+        .product-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .main-image {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .thumbnail-container {
+            display: flex;
+            gap: 0.8rem;
+            overflow-x: auto;
+            padding: 8px 0;
+        }
+
+        .thumbnail {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 4px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .thumbnail:hover, .thumbnail.active {
+            border-color: var(--primary);
+            transform: scale(1.05);
+        }
+
+        /* Product Details */
+        .product-details {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .game-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: white;
+            background-color: var(--freefire);
+            font-size: 0.85rem;
+        }
+
+        .product-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 0.8rem;
+            color: var(--dark);
+        }
+
+        .product-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .product-price .old-price {
+            font-size: 1.2rem;
+            color: #999;
+            text-decoration: line-through;
+            margin-left: 8px;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .stars {
+            color: #ffd700;
+            font-size: 0.9rem;
+        }
+
+        .rating-text {
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        /* Compact Account Details Section */
+        .account-details {
+            margin: 1rem 0;
+        }
+
+        .account-details h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.6rem;
+            color: var(--dark);
+            padding-bottom: 0.3rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .simple-list {
+            list-style: none;
+            padding-left: 0;
+            font-size: 0.8rem;
+        }
+
+        .simple-list li {
+            margin-bottom: 0.3rem;
+            padding: 0.3rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .detail-name {
+            color: #666;
+            font-weight: 500;
+        }
+
+        .detail-value {
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        /* Description Section */
+        .description-section {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+
+        .description-section h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.6rem;
+            color: var(--dark);
+        }
+
+        .description-content {
+            color: #555;
+            line-height: 1.6;
+            font-size: 0.85rem;
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .btn-buy {
+            flex: 1;
+            background-color: var(--success);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-buy:hover {
+            background-color: #00a085;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 184, 148, 0.3);
+        }
+
+        .btn-wishlist {
+            background-color: var(--gray);
+            color: var(--dark);
+            border: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.9rem;
+        }
+
+        .btn-wishlist:hover {
+            background-color: #ccc;
+        }
+
+        /* Product Tabs */
+        .product-tabs {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 2rem;
+        }
+
+        .tab-headers {
+            display: flex;
+            border-bottom: 1px solid #eee;
+            background: #f8f9fa;
+        }
+
+        .tab-header {
+            padding: 0.8rem 1.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            color: #666;
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+            font-size: 0.9rem;
+        }
+
+        .tab-header.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+            background: white;
+        }
+
+        .tab-content {
+            padding: 1.5rem;
+        }
+
+        .tab-pane {
+            display: none;
+        }
+
+        .tab-pane.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Paragraph Content */
+        .tab-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .paragraph-content {
+            color: #555;
+            line-height: 1.7;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .paragraph-content p {
+            margin-bottom: 1rem;
+        }
+
+        .paragraph-content ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .paragraph-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* FAQ Section */
+        .faq-item {
+            margin-bottom: 1.2rem;
+            padding-bottom: 1.2rem;
+            border-bottom: 1px solid #eee;
+            font-size: 0.85rem;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+        }
+
+        .faq-answer {
+            color: #555;
+            line-height: 1.5;
+        }
+
+        /* Related Products - More Ads */
+        .related-products {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            color: var(--dark);
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1.2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+        }
+
+        .product-card-content {
+            padding: 1rem;
+        }
+
+        .product-card h4 {
+            margin-bottom: 0.4rem;
+            color: var(--dark);
+            font-size: 0.9rem;
+            line-height: 1.3;
+        }
+
+        .product-card .price {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+        }
+
+        .btn-view {
+            width: 100%;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.8rem;
+        }
+
+        .btn-view:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Game Badge for Related Products */
+        .game-badge-small {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 2px 6px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.7rem;
+            margin-bottom: 5px;
+            color: white;
+        }
+
+        .game-badge-small.freefire {
+            background-color: var(--freefire);
+        }
+
+        .game-badge-small.pubg {
+            background-color: var(--pubg);
+        }
+
+        .game-badge-small.coc {
+            background-color: var(--coc);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1e21;
+            color: #aaa;
+            padding: 2rem 0 1rem;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links h4, .footer-contact h4 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.6rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .footer-contact p {
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 1.2rem;
+            border-top: 1px solid #333;
+            font-size: 0.8rem;
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--success);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 6px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            display: none;
+            z-index: 1001;
+            animation: slideInRight 0.3s ease-out;
+            font-size: 0.9rem;
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .product-title {
+                font-size: 1.5rem;
+            }
+
+            .product-price {
+                font-size: 1.6rem;
+            }
+
+            .tab-headers {
+                flex-direction: column;
+            }
+
+            .tab-header {
+                border-bottom: 1px solid #eee;
+                text-align: center;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+                gap: 1rem;
+            }
+
+            .product-card img {
+                height: 100px;
+            }
+
+            .simple-list li {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.1rem;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .products-grid {
+                grid-template-columns: repeat(6, 1fr);
+            }
+        }
+
+        .user-dropdown {
+    position: relative;
+}
+
+.user-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s;
+}
+
+.user-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--secondary);
+}
+
+.user-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    min-width: 220px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    overflow: hidden;
+    margin-top: 8px;
+}
+
+.user-dropdown-menu a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    color: var(--dark);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.user-dropdown-menu a:hover {
+    background-color: #f8f9fa;
+    color: var(--primary);
+}
+
+.user-dropdown-menu a:last-child {
+    border-bottom: none;
+}
+
+.user-dropdown-menu .dropdown-divider {
+    height: 1px;
+    background: #f0f0f0;
+    margin: 5px 0;
+}
+
+.user-dropdown-menu i {
+    width: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .user-dropdown {
+        width: 100%;
+        margin-top: 10px;
+    }
+    
+    .user-dropdown-menu {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+        border-radius: 6px;
+        background: rgba(255, 255, 255, 0.05);
+    }
+    
+    .user-dropdown-menu a {
+        color: white;
+        border-bottom-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .user-dropdown-menu a:hover {
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--secondary);
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-gamepad"></i>
+                <span>GameHubLK</span>
+            </a>
+            
+            <nav>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="nav-links" id="navLinks">
+                    <a href="index.html">Home</a>
+                    <a href="index.html#accounts">Accounts</a>
+                    <a href="index.html#features">Why Choose Us</a>
+                    <a href="index.html#contact">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb container">
+        <a href="index.html">Home</a> &gt; 
+        <a href="index.html#accounts">Accounts</a> &gt; 
+        <a href="#">Free Fire</a> &gt; 
+        <span>Free Fire MAX Legendary Account</span>
+    </div>
+
+    <!-- Main Product Container -->
+    <div class="container">
+        <div class="product-container">
+            <!-- Product Images & Description -->
+            <div class="product-gallery">
+                <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=800&h=500&fit=crop" 
+                     alt="Free Fire MAX Legendary Account" class="main-image" id="mainImage">
+                
+                <div class="thumbnail-container">
+                    <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=200&h=150&fit=crop" 
+                         alt="Account Preview 1" class="thumbnail active" onclick="changeImage(this)">
+                    <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=200&h=150&fit=crop" 
+                         alt="Account Preview 2" class="thumbnail" onclick="changeImage(this)">
+                    <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=200&h=150&fit=crop" 
+                         alt="Account Preview 3" class="thumbnail" onclick="changeImage(this)">
+                    <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=200&h=150&fit=crop" 
+                         alt="Account Preview 4" class="thumbnail" onclick="changeImage(this)">
+                </div>
+
+                <!-- Description Section -->
+                <div class="description-section">
+                    <h3>Description</h3>
+                    <div class="description-content">
+                        <p>Ultimate Free Fire MAX account with legendary items, high-level characters, and massive diamond reserves. 
+                        This account features rare skins, exclusive emotes, and top-tier weapons. Perfect for competitive players 
+                        looking to dominate the battlefield with style and power.</p>
+                        
+                        <p>The account has been maintained by a professional player with excellent stats and 
+                        win rates. All items are legitimately obtained through gameplay and purchases.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Details -->
+            <div class="product-details">
+                <div class="game-badge">
+                    <i class="fas fa-fire"></i> Free Fire
+                </div>
+                
+                <h1 class="product-title">Free Fire MAX Legendary Account</h1>
+                
+                <div class="rating">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <span class="rating-text">4.7 (128 reviews)</span>
+                </div>
+                
+                <div class="product-price">
+                    $249.99
+                    <span class="old-price">$299.99</span>
+                </div>
+
+                <!-- Compact Account Details List -->
+                <div class="account-details">
+                    <h3>Account Details</h3>
+                    <ul class="simple-list">
+                        <li>
+                            <span class="detail-name">Level</span>
+                            <span class="detail-value">70</span>
+                        </li>
+                        <li>
+                            <span class="detail-name">Diamonds</span>
+                            <span class="detail-value">15K+</span>
+                        </li>
+                        <li>
+                            <span class="detail-name">Characters</span>
+                            <span class="detail-value">12</span>
+                        </li>
+                        <li>
+                            <span class="detail-name">K/D Ratio</span>
+                            <span class="detail-value">4.2</span>
+                        </li>
+                        <li>
+                            <span class="detail-name">Win Rate</span>
+                            <span class="detail-value">68%</span>
+                        </li>
+                        <li>
+                            <span class="detail-name">Rank</span>
+                            <span class="detail-value">Heroic</span>
+                        </li>
+                        <li>
+                            <span class="detail-name">Skins</span>
+                            <span class="detail-value">45+</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button class="btn-buy" onclick="buyNow()">
+                        <i class="fas fa-shopping-cart"></i> Buy Now
+                    </button>
+                    
+                    <button class="btn-wishlist" onclick="addToWishlist()">
+                        <i class="far fa-heart"></i> Add to Wishlist
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Tabs -->
+        <div class="product-tabs">
+            <div class="tab-headers">
+                <div class="tab-header active" onclick="openTab('specs')">Full Specifications</div>
+                <div class="tab-header" onclick="openTab('delivery')">Delivery & Support</div>
+                <div class="tab-header" onclick="openTab('faq')">FAQ</div>
+            </div>
+            
+            <div class="tab-content">
+                <div id="specs" class="tab-pane active">
+                    <h3>Complete Account Specifications</h3>
+                    <div class="paragraph-content">
+                        <p>This premium Free Fire MAX Legendary Account is a fully-loaded gaming profile with exceptional stats and rare collectibles. The account boasts a Level 70 progression with 15,000+ diamonds ready for immediate use. It features 12 unique characters with special abilities, each equipped with rare skins and exclusive items.</p>
+                        
+                        <p>The account maintains an impressive 4.2 K/D ratio with a 68% win rate across all game modes. With Heroic rank achieved in the last 4 consecutive seasons, this account is battle-tested and ready for competitive play. The extensive collection includes over 45 premium weapon skins, 20+ character outfits, and a complete set of vehicle skins.</p>
+                        
+                        <p><strong>Key Features:</strong></p>
+                        <ul>
+                            <li>500+ hours of gameplay experience</li>
+                            <li>850+ squad match victories</li>
+                            <li>320+ solo match victories</li>
+                            <li>480+ duo match victories</li>
+                            <li>Complete pet collection with rare pets</li>
+                            <li>All vehicles unlocked with premium skins</li>
+                            <li>25+ exclusive emotes and sprays</li>
+                            <li>Global server access with no region restrictions</li>
+                            <li>Account created in March 2022 with consistent activity</li>
+                        </ul>
+                        
+                        <p>This account represents the ultimate Free Fire MAX experience, perfect for serious players looking to compete at the highest level with top-tier equipment and impressive stats from day one.</p>
+                    </div>
+                </div>
+                
+                <div id="delivery" class="tab-pane">
+                    <h3>Delivery Information</h3>
+                    <div class="paragraph-content">
+                        <p>We provide instant delivery of all account credentials immediately after your payment is confirmed. Within 5 minutes of successful payment, you will receive an encrypted email containing all necessary login information.</p>
+                        
+                        <p><strong>What's Included in Delivery:</strong></p>
+                        <ul>
+                            <li>Full account username/login ID</li>
+                            <li>Secure password for immediate access</li>
+                            <li>Recovery email address and backup information</li>
+                            <li>Step-by-step setup instructions</li>
+                            <li>Security recommendations for account protection</li>
+                        </ul>
+                        
+                        <p><strong>Important Security Notes:</strong></p>
+                        <p>For your security, we strongly recommend changing the password immediately after receiving the account. Our system provides 24/7 customer support to assist with any setup issues or questions you may have during the transfer process.</p>
+                        
+                        <p>All our accounts come with a 7-day money-back guarantee. If you encounter any issues with the account that cannot be resolved by our support team within 7 days of purchase, we offer a full refund.</p>
+                    </div>
+                </div>
+                
+                <div id="faq" class="tab-pane">
+                    <h3>Frequently Asked Questions</h3>
+                    <div class="faq-item">
+                        <div class="faq-question">Q: Is this account safe to use and won't get banned?</div>
+                        <div class="faq-answer">A: Yes, all our accounts are 100% safe and verified. They come from legitimate sources with no hacking or cheating history. We provide full recovery information and 7-day support guarantee.</div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Q: Can I change the account details after purchase?</div>
+                        <div class="faq-answer">A: Absolutely. You can immediately change the password, email, security questions, and all other account details after receiving the credentials. The account becomes fully yours.</div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Q: What if I encounter issues with the account?</div>
+                        <div class="faq-answer">A: We offer 24/7 customer support and a 7-day guarantee. If you face any issues, our support team will help resolve them immediately, or you can request a full refund within 7 days.</div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Q: Is this account region-locked or can I use it anywhere?</div>
+                        <div class="faq-answer">A: This account works on the Global server and is accessible from any region worldwide. There are no geographical restrictions.</div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Q: How quickly will I receive the account after payment?</div>
+                        <div class="faq-answer">A: Instant delivery within 5 minutes after payment confirmation. You'll receive an email with all login credentials immediately.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Related Products - More Ads -->
+        <div class="related-products">
+            <h2 class="section-title">You May Also Like</h2>
+            <div class="products-grid">
+                <!-- Free Fire Accounts -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=300&h=200&fit=crop" 
+                         alt="Free Fire Pro Account">
+                    <div class="product-card-content">
+                        <div class="game-badge-small freefire">
+                            <i class="fas fa-fire"></i> Free Fire
+                        </div>
+                        <h4>Free Fire Pro Account</h4>
+                        <p class="price">$179.99</p>
+                        <button class="btn-view" onclick="viewProduct('freefire-pro.html')">View Details</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=300&h=200&fit=crop" 
+                         alt="FF Diamond Elite">
+                    <div class="product-card-content">
+                        <div class="game-badge-small freefire">
+                            <i class="fas fa-fire"></i> Free Fire
+                        </div>
+                        <h4>FF Diamond Elite Account</h4>
+                        <p class="price">$199.99</p>
+                        <button class="btn-view" onclick="viewProduct('ff-diamond.html')">View Details</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=300&h=200&fit=crop" 
+                         alt="FF Battle Royale Pro">
+                    <div class="product-card-content">
+                        <div class="game-badge-small freefire">
+                            <i class="fas fa-fire"></i> Free Fire
+                        </div>
+                        <h4>FF Battle Royale Pro</h4>
+                        <p class="price">$139.99</p>
+                        <button class="btn-view" onclick="viewProduct('ff-battle.html')">View Details</button>
+                    </div>
+                </div>
+                
+                <!-- PUBG Accounts -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=300&h=200&fit=crop" 
+                         alt="PUBG Conqueror Account">
+                    <div class="product-card-content">
+                        <div class="game-badge-small pubg">
+                            <i class="fas fa-crosshairs"></i> PUBG
+                        </div>
+                        <h4>PUBG Conqueror Account</h4>
+                        <p class="price">$349.99</p>
+                        <button class="btn-view" onclick="viewProduct('pubg-conqueror.html')">View Details</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1579373903781-fd5c0c30c4cd?w=300&h=200&fit=crop" 
+                         alt="PUBG Ace Dominator">
+                    <div class="product-card-content">
+                        <div class="game-badge-small pubg">
+                            <i class="fas fa-crosshairs"></i> PUBG
+                        </div>
+                        <h4>PUBG Ace Dominator</h4>
+                        <p class="price">$229.99</p>
+                        <button class="btn-view" onclick="viewProduct('pubg-ace.html')">View Details</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1579373903781-fd5c0c30c4cd?w=300&h=200&fit=crop" 
+                         alt="PUBG Crown Master">
+                    <div class="product-card-content">
+                        <div class="game-badge-small pubg">
+                            <i class="fas fa-crosshairs"></i> PUBG
+                        </div>
+                        <h4>PUBG Crown Master</h4>
+                        <p class="price">$159.99</p>
+                        <button class="btn-view" onclick="viewProduct('pubg-crown.html')">View Details</button>
+                    </div>
+                </div>
+                
+                <!-- Clash of Clans Accounts -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1560253023-3ec5d502959f?w=300&h=200&fit=crop" 
+                         alt="Max TH14 Account">
+                    <div class="product-card-content">
+                        <div class="game-badge-small coc">
+                            <i class="fas fa-crown"></i> Clash of Clans
+                        </div>
+                        <h4>Max TH14 Account</h4>
+                        <p class="price">$499.99</p>
+                        <button class="btn-view" onclick="viewProduct('coc-th14.html')">View Details</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=300&h=200&fit=crop" 
+                         alt="Clash of Clans TH13">
+                    <div class="product-card-content">
+                        <div class="game-badge-small coc">
+                            <i class="fas fa-crown"></i> Clash of Clans
+                        </div>
+                        <h4>Clash of Clans TH13</h4>
+                        <p class="price">$329.99</p>
+                        <button class="btn-view" onclick="viewProduct('coc-th13.html')">View Details</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=300&h=200&fit=crop" 
+                         alt="TH12 War Beast">
+                    <div class="product-card-content">
+                        <div class="game-badge-small coc">
+                            <i class="fas fa-crown"></i> Clash of Clans
+                        </div>
+                        <h4>TH12 War Beast</h4>
+                        <p class="price">$249.99</p>
+                        <button class="btn-view" onclick="viewProduct('coc-th12.html')">View Details</button>
+                    </div>
+                </div>
+                
+                <!-- More Free Fire Accounts -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=300&h=200&fit=crop" 
+                         alt="Free Fire Elite">
+                    <div class="product-card-content">
+                        <div class="game-badge-small freefire">
+                            <i class="fas fa-fire"></i> Free Fire
+                        </div>
+                        <h4>Free Fire Elite Account</h4>
+                        <p class="price">$159.99</p>
+                        <button class="btn-view" onclick="viewProduct('ff-elite.html')">View Details</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=300&h=200&fit=crop" 
+                         alt="FF Master Account">
+                    <div class="product-card-content">
+                        <div class="game-badge-small freefire">
+                            <i class="fas fa-fire"></i> Free Fire
+                        </div>
+                        <h4>FF Master Account</h4>
+                        <p class="price">$219.99</p>
+                        <button class="btn-view" onclick="viewProduct('ff-master.html')">View Details</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=300&h=200&fit=crop" 
+                         alt="FF Premium Plus">
+                    <div class="product-card-content">
+                        <div class="game-badge-small freefire">
+                            <i class="fas fa-fire"></i> Free Fire
+                        </div>
+                        <h4>FF Premium Plus Account</h4>
+                        <p class="price">$289.99</p>
+                        <button class="btn-view" onclick="viewProduct('ff-premium.html')">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="footer-logo">GameHubLK</div>
+                    <p>Your trusted marketplace for premium gaming accounts. We provide secure transactions and top-quality accounts for serious gamers.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#accounts">Accounts</a></li>
+                        <li><a href="index.html#features">Why Choose Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-envelope"></i> support@gamehubLK.com</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Gaming Street, Virtual City</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 GameHubLK. All rights reserved. This website is for demonstration purposes only.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">Item added to cart successfully!</div>
+
+    <script>
+        // Image Gallery
+        function changeImage(thumbnail) {
+            const mainImage = document.getElementById('mainImage');
+            mainImage.src = thumbnail.src.replace('w=200&h=150', 'w=800&h=500');
+            
+            // Update active thumbnail
+            document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+            thumbnail.classList.add('active');
+        }
+
+        // Tab Switching
+        function openTab(tabName) {
+            // Update tab headers
+            document.querySelectorAll('.tab-header').forEach(header => {
+                header.classList.remove('active');
+            });
+            event.currentTarget.classList.add('active');
+            
+            // Update tab content
+            document.querySelectorAll('.tab-pane').forEach(pane => {
+                pane.classList.remove('active');
+            });
+            document.getElementById(tabName).classList.add('active');
+        }
+
+        // Buy Now Function
+        function buyNow() {
+            const toast = document.getElementById('toast');
+            const price = document.querySelector('.product-price').textContent.split('\n')[0];
+            
+            toast.textContent = `Processing purchase for ${price}...`;
+            toast.style.display = 'block';
+            toast.style.backgroundColor = 'var(--success)';
+            
+            setTimeout(() => {
+                toast.textContent = 'Redirecting to secure checkout...';
+            }, 1500);
+            
+            setTimeout(() => {
+                toast.style.display = 'none';
+                // In real implementation, redirect to checkout page
+                alert('This would redirect to checkout page in a real implementation.');
+            }, 3000);
+        }
+
+        // Add to Wishlist
+        function addToWishlist() {
+            const toast = document.getElementById('toast');
+            const wishlistBtn = event.currentTarget;
+            
+            toast.textContent = 'Added to wishlist!';
+            toast.style.display = 'block';
+            toast.style.backgroundColor = 'var(--primary)';
+            
+            // Update button
+            wishlistBtn.innerHTML = '<i class="fas fa-heart"></i> Added to Wishlist';
+            wishlistBtn.style.backgroundColor = 'var(--danger)';
+            wishlistBtn.style.color = 'white';
+            wishlistBtn.onclick = null;
+            wishlistBtn.style.cursor = 'default';
+            
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 3000);
+        }
+
+        // View Related Product
+        function viewProduct(url) {
+            // In real implementation, this would navigate to the product page
+            alert(`This would navigate to: ${url}`);
+            // window.location.href = url;
+        }
+
+        // Mobile Menu Toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Initialize first image as active
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set first thumbnail as active
+            const firstThumbnail = document.querySelector('.thumbnail');
+            if (firstThumbnail) {
+                firstThumbnail.classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>

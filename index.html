@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GameHub - Premium Gaming Accounts Marketplace</title>
+    <title>GameHubLK - Premium Gaming Accounts Marketplace</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
     <style>
@@ -83,6 +83,7 @@
             font-weight: 500;
             transition: color 0.3s;
             position: relative;
+            cursor: pointer;
         }
 
         .nav-links a:hover {
@@ -513,15 +514,111 @@
                 grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             }
         }
+
+        .user-dropdown {
+    position: relative;
+}
+
+.user-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s;
+}
+
+.user-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--secondary);
+}
+
+.user-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    min-width: 220px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    overflow: hidden;
+    margin-top: 8px;
+}
+
+.user-dropdown-menu a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    color: var(--dark);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.user-dropdown-menu a:hover {
+    background-color: #f8f9fa;
+    color: var(--primary);
+}
+
+.user-dropdown-menu a:last-child {
+    border-bottom: none;
+}
+
+.user-dropdown-menu .dropdown-divider {
+    height: 1px;
+    background: #f0f0f0;
+    margin: 5px 0;
+}
+
+.user-dropdown-menu i {
+    width: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .user-dropdown {
+        width: 100%;
+        margin-top: 10px;
+    }
+    
+    .user-dropdown-menu {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+        border-radius: 6px;
+        background: rgba(255, 255, 255, 0.05);
+    }
+    
+    .user-dropdown-menu a {
+        color: white;
+        border-bottom-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .user-dropdown-menu a:hover {
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--secondary);
+    }
+}
+
+        
     </style>
 </head>
 <body>
     <!-- Header & Navigation -->
-    <header>
+    <header id="home">
         <div class="container header-container">
             <div class="logo">
                 <i class="fas fa-gamepad"></i>
-                <span>GameHub</span>
+                <span>GameHubLK</span>
             </div>
             
             <nav>
@@ -529,10 +626,10 @@
                     <i class="fas fa-bars"></i>
                 </button>
                 <div class="nav-links" id="navLinks">
-                    <a href="#" class="active">Home</a>
-                    <a href="#accounts">Accounts</a>
-                    <a href="#features">Why Choose Us</a>
-                    <a href="#contact">Contact</a>
+                    <a href="#home" class="nav-link active">Home</a>
+                    <a href="#accounts" class="nav-link">Accounts</a>
+                    <a href="#features" class="nav-link">Why Choose Us</a>
+                    <a href="#contact" class="nav-link">Contact</a>
                 </div>
             </nav>
         </div>
@@ -577,7 +674,7 @@
     <!-- Features Section -->
     <section class="features" id="features">
         <div class="container">
-            <h2 class="section-title">Why Choose GameHub?</h2>
+            <h2 class="section-title">Why Choose GameHubLK?</h2>
             <div class="features-container">
                 <div class="feature-card">
                     <div class="feature-icon">
@@ -616,13 +713,13 @@
         <div class="container">
             <div class="footer-container">
                 <div class="footer-about">
-                    <div class="footer-logo">GameHub</div>
+                    <div class="footer-logo">GameHubLK</div>
                     <p>Your trusted marketplace for premium gaming accounts. We provide secure transactions and top-quality accounts for serious gamers.</p>
                 </div>
                 <div class="footer-links">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="#">Home</a></li>
+                        <li><a href="#home">Home</a></li>
                         <li><a href="#accounts">Accounts</a></li>
                         <li><a href="#features">Why Choose Us</a></li>
                         <li><a href="#">FAQ</a></li>
@@ -631,13 +728,13 @@
                 </div>
                 <div class="footer-contact">
                     <h4>Contact Us</h4>
-                    <p><i class="fas fa-envelope"></i> support@gamehub.com</p>
+                    <p><i class="fas fa-envelope"></i> support@gamehubLK.com</p>
                     <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
                     <p><i class="fas fa-map-marker-alt"></i> 123 Gaming Street, Virtual City</p>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2023 GameHub. All rights reserved. This website is for demonstration purposes only.</p>
+                <p>&copy; 2026 GameHubLK. All rights reserved. This website is for demonstration purposes only.</p>
             </div>
         </div>
     </footer>
@@ -808,6 +905,7 @@
         const filterButtons = document.querySelectorAll('.game-filter-btn');
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const navLinks = document.getElementById('navLinks');
+        const navLinkItems = document.querySelectorAll('.nav-link');
 
         // Function to render accounts
         function renderAccounts(filter = 'all') {
@@ -899,10 +997,38 @@
             navLinks.classList.toggle('active');
         });
 
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
+        // Navigation link click handler
+        navLinkItems.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Close mobile menu
                 navLinks.classList.remove('active');
+                
+                // Remove active class from all nav links
+                navLinkItems.forEach(navLink => {
+                    navLink.classList.remove('active');
+                });
+                
+                // Add active class to clicked link
+                this.classList.add('active');
+                
+                // Get target section
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    // Calculate offset (header height)
+                    const headerOffset = 80;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    
+                    // Smooth scroll to target
+                    window.scrollTo({
+                        top: targetId === '#home' ? 0 : offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
 
@@ -918,28 +1044,18 @@
             }
         };
 
-        // Close mobile menu when clicking on a link and update active state
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', function() {
-                navLinks.classList.remove('active');
-                
-                // Remove active class from all nav links
-                document.querySelectorAll('.nav-links a').forEach(a => {
-                    a.classList.remove('active');
-                });
-                
-                // Add active class to clicked link
-                this.classList.add('active');
-            });
-        });
-
         // Initialize the page
         document.addEventListener('DOMContentLoaded', () => {
             renderAccounts();
             
-            // Smooth scrolling for anchor links
+            // Smooth scrolling for all anchor links (including footer links)
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
+                    // Skip if it's a nav link (already handled above)
+                    if (this.classList.contains('nav-link')) {
+                        return;
+                    }
+                    
                     e.preventDefault();
                     
                     const targetId = this.getAttribute('href');
@@ -947,9 +1063,21 @@
                     
                     const targetElement = document.querySelector(targetId);
                     if(targetElement) {
+                        const headerOffset = 80;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                        
                         window.scrollTo({
-                            top: targetElement.offsetTop - 80,
+                            top: targetId === '#home' ? 0 : offsetPosition,
                             behavior: 'smooth'
+                        });
+                        
+                        // Update nav active state for footer links
+                        navLinkItems.forEach(navLink => {
+                            if (navLink.getAttribute('href') === targetId) {
+                                navLinkItems.forEach(link => link.classList.remove('active'));
+                                navLink.classList.add('active');
+                            }
                         });
                     }
                 });
